@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link id="theme_stylesheet" rel="stylesheet" href="{{ url_for('static', filename='light-theme.css') }}">
+    <title>英単語クイズ選択</title>
+    <link rel="stylesheet" type="text/css" href="/static/styles.css">
+    <link rel="stylesheet" type="text/css" href="/static/list-quizzes.css">
+    <script>
+        function initializeTheme() {
+            const themeStylesheet = document.getElementById("theme_stylesheet");
+            const body = document.body;
+            const storedTheme = localStorage.getItem("theme");
+
+            if (storedTheme === "dark") {
+                body.classList.remove("light-theme");
+                body.classList.add("dark-theme");
+            } else {
+                body.classList.remove("dark-theme");
+                body.classList.add("light-theme");
+            }
+        }
+
+        function switchTheme() {
+            const themeStylesheet = document.getElementById("theme_stylesheet");
+            const body = document.body;
+
+            if (body.classList.contains("light-theme")) {
+                body.classList.remove("light-theme");
+                body.classList.add("dark-theme");
+                body.classList.add("fade-in");
+                setTimeout(() => body.classList.remove("fade-in"), 300);
+                localStorage.setItem("theme", "dark");
+            } else {
+                body.classList.remove("dark-theme");
+                body.classList.add("light-theme");
+                body.classList.add("fade-in");
+                setTimeout(() => body.classList.remove("fade-in"), 300);
+                localStorage.setItem("theme", "light");
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.style.display = 'block';
+        });
+        </script>
+</head>
+<body class="dark-theme" onload="initializeTheme()">
+    <h1>英単語クイズ選択</h1>
+    <div id="theme_switch_icon" style="position: fixed; top: 10px; right: 10px; width: 48px; height: 48px; cursor: pointer;" onclick="switchTheme();"></div>
+    <ul>
+        {% for title in word_pairs.keys() %}
+        <li><a href="{{ url_for('start_quiz', title=title) }}">{{ title }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

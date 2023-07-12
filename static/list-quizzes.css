@@ -1,0 +1,23 @@
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: #337ab7;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+#theme_switch_icon {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 48px 48px;
+}

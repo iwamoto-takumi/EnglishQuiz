@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link id="theme_stylesheet" rel="stylesheet" href="{{ url_for('static', filename='light-theme.css') }}">
+    <title>英単語クイズ</title>
+    <link rel="stylesheet" type="text/css" href="/static/styles.css">
+    <link rel="stylesheet" type="text/css" href="/static/quiz.css">
+    <div id="theme_switch_icon" style="position: fixed; top: 10px; right: 10px; width: 48px; height: 48px; cursor: pointer;" onclick="switchTheme();"></div>
+    <script>
+        let wordPairs = {{ word_pairs|tojson }};
+        let _wordPairs = {{ word_pairs|tojson }};
+        let selectedTitle = {{ selected_title|tojson }};
+    </script>
+    <script src="/static/app.js" defer></script>
+</head>
+<body class="dark-theme" onload="initializeTheme(); getNextQuestion();">
+    <div style="text-align: center; margin-bottom: 20px;">
+        <button id="switch_mode_button" onclick="switchMode();">モード切り替え</button>
+    </div>
+    <h1>英単語クイズ</h1>
+    <a href="{{ url_for('list_quizzes') }}" id="back_button">戻る</a>
+    <p id="english_word"></p>
+    <p id="progress"></p>
+    <div id="answer_buttons" class="answer-container" style="display: none;">
+        <button class="answer_button modern-button" onclick="event.stopPropagation(); checkAnswer(0);"></button>
+        <button class="answer_button modern-button" onclick="event.stopPropagation(); checkAnswer(1);"></button>
+        <button class="answer_button modern-button" onclick="event.stopPropagation(); checkAnswer(2);"></button>
+        <button class="answer_button modern-button" onclick="event.stopPropagation(); checkAnswer(3);"></button>
+    </div>
+    <p id="result" style="display: none;"></p>
+    <p id="answer" style="display: none;"></p>
+    <div class="button-container">
+        <button id="show_answer_button" onclick="event.stopPropagation(); showAnswer();" style="display: none;">答えを見る</button>
+        <button id="next_button" onclick="event.stopPropagation(); getNextQuestion();" style="display: none;">次を見る</button>
+        <div class="retry-button-container">
+            <button id="restart_button" onclick="event.stopPropagation(); restartQuiz();" style="display: none;">再度挑戦</button>
+            <button id="mistake_button" onclick="event.stopPropagation(); restartQuizWithMistake();" style="display: none;">誤答挑戦</button>
+        </div>
+    </div>
+    <div id="background_click_area" style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: -1;" onclick="onScreenTap();"></div>
+</body>
+</html>

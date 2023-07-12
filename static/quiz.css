@@ -1,0 +1,196 @@
+select, button {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.button-container {
+    display: flex;
+    text-align: center;
+    flex-flow: column;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.retry-button-container {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+}
+
+/* スマホとタブレット向けのスタイル */
+@media (max-width: 768px) {
+    h1 {
+        margin-top: -24px;
+        margin-bottom: -24px;
+    }
+
+    select, button {
+        font-size: 20px;
+    }
+
+    #switch_mode_button {
+        font-size: 16px;
+        padding: 10px 5px;
+    }
+}
+
+.select-container {
+    display: inline-block;
+    text-align: center;
+    max-width: 100%;
+}
+
+select {
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+#theme_switch_icon {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 48px 48px;
+}
+
+#restart_button,
+#mistake_button {
+    margin-left: 16px;
+    margin-right: 16px;
+}
+
+#switch_mode_button,
+#next_button,
+#show_answer_button,
+#restart_button,
+#mistake_button {
+    font-size: 20px;
+    padding: 10px 30px;
+    text-decoration: none;
+    border: 1px solid #337ab7;
+    border-radius: 3px;
+    color: #337ab7;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+#switch_mode_button:hover,
+#next_button:hover,
+#show_answer_button:hover,
+#restart_button:hover,
+#mistake_button:hover {
+    background-color: #337ab7;
+    color: #fff;
+}
+
+.dark-theme #switch_mode_button,
+.dark-theme #next_button,
+.dark-theme #show_answer_button,
+.dark-theme #restart_button,
+.dark-theme #mistake_button {
+    border-radius: 1px solid #555;
+    border: 1px solid #ccc;
+    background-color: #555;
+    color: #fff;
+}
+
+.dark-theme #switch_mode_button:hover,
+.dark-theme #next_button:hover,
+.dark-theme #show_answer_button:hover,
+.dark-theme #restart_button:hover,
+.dark-theme #mistake_button:hover {
+    background-color: #666;
+    color: #ddd;
+}
+
+#back_button {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    font-size: 20px;
+    padding: 5px 10px;
+    text-decoration: none;
+    border: 1px solid #337ab7;
+    border-radius: 3px;
+    color: #337ab7;
+    background-color: #ffffff;
+}
+
+#back_button:hover {
+    background-color: #337ab7;
+    color: #fff;
+}
+
+.dark-theme #back_button {
+    border-radius: 1px solid #555;
+    border: 1px solid #ccc;
+    background-color: #555;
+    color: #fff;
+}
+
+.dark-theme #back_button:hover {
+    background-color: #666;
+    color: #ddd;
+}
+
+.answer_button {
+    display: block;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    background-color: transparent;
+    transition: background-color 0.3s;
+}
+
+.answer_button:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.modern-button {
+    border: 1px solid #ccc;
+    color: #333;
+}
+
+.modern-button:focus {
+    outline: none;
+}
+
+
+.answer-container {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+}
+
+.answer_button {
+    display: block;
+    width: 80%; /* 横幅を80%に設定 */
+    text-align: center; /* テキストを中央揃えに設定 */
+    margin: 0 auto 10px; /* 左右のマージンを自動設定し、中央揃えにする */
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    background-color: transparent;
+    transition: background-color 0.3s;
+}
+
+.answer_button.disabled {
+    background-color: #6494edc3;
+    color: white;
+    cursor: not-allowed;
+    text-decoration: line-through;
+}
+
+.light-theme .correct_button,
+.dark-theme .correct_button{
+    background-color: #32CD32;
+    color: white;
+}
+
+
